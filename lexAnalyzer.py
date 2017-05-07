@@ -1,9 +1,7 @@
 from errorManager import LexError
-from tokenPatterns import TOKEN_PATTERN, NEWLN, SPACE, RES_WORDS
+from tokenPatterns import TOKEN_PATTERN, NEWLN, SPACE, RES_WORD, OP_LOG, RES_WORDS, OPS_LOG, END_TOKEN
 
 IGNORED_TOKENS = frozenset([NEWLN, SPACE])
-
-END_TOKEN = '$'
 
 class Lex:
     def __init__(self, file_path):
@@ -22,8 +20,8 @@ class Lex:
             m = TOKEN_PATTERN.match(self.string, pos)
             if not m:
                 if pos == len(self.string) - 1:
-                    self.tokens.append(('', END_TOKEN))
-                    return ('$', END_TOKEN)
+                    self.tokens.append((END_TOKEN, END_TOKEN))
+                    return self.tokens
                 invalid = self.string[pos]
                 raise LexError('Invalid token {0}'.format(invalid))
 
@@ -33,13 +31,12 @@ class Lex:
 
             token_value = m.group(token_name)
             if token_value in RES_WORDS:
-                token_name = 'RES_WORD'
+                token_name = RES_WORD
+            elif token_value in OPS_LOG:
+                token_name = OP_LOG
 
             if token_name not in IGNORED_TOKENS:
                 self.tokens.append((token_name, token_value))
-
-    def current(self):
-        return self.tokens[-1]
 
 def writeSuccessFile():
     file = open('salida.txt', 'w')
