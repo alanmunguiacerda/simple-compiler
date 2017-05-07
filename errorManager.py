@@ -1,7 +1,7 @@
 class LexError(Exception):
-    def __init__(self, message):
+    pass
 
 def writeErrorFile():
     file = open('salida.txt', 'w')
-    file.write('1')
+    file.write('0')
     file.close()

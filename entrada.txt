@@ -2,4 +2,3 @@ entero a;
 a = 10;
 entero b;
 b = a + 2;
-$

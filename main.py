@@ -1,11 +1,11 @@
-from lexAnalyzer import Lex
+from lexAnalyzer import Lex, writeSuccessFile
 from errorManager import LexError, writeErrorFile
 
 lex = Lex(file_path='entrada.txt')
 
 try:
     lex.tokenize()
-    print(lex.tokens)
 except LexError as e:
-    print(e)
     writeErrorFile()
+else:
+    writeSuccessFile()

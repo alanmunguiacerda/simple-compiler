@@ -37,3 +37,8 @@ class Lex:
 
     def current(self):
         return self.tokens[-1]
+
+def writeSuccessFile():
+    file = open('salida.txt', 'w')
+    file.write('1')
+    file.close()
