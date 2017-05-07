@@ -6,3 +6,10 @@ class Declaration(Node):
 
         self.data_type = data_type
         self.declarator = declarator
+
+    def generateXML(self):
+        xml = '<DEFVAR>'
+        xml += self.data_type.generateXML()
+        xml += self.cascadeXML(self.declarator, False)
+        xml += '</DEFVAR>'
+        return xml

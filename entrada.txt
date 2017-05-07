@@ -1,58 +1,32 @@
-mientras (4.7 == - 826)
+si (Qi < K)
     {
-    mientras (7.7 / 76 >= 09710.38)
-        mientras (6448.6 <= 787.65)
+    J0y3 = GU6H;
+    mientras (252 + 1.1 <= 49)
+        si ((YA87 / 52.14) * (39.87 - 728.5) <> 3612)
             {
-            imprime (O0F09 - (UKp94 - T7A7));
-            imprime (79);
+            imprime (164);
 
+            z8Sv4 = (21.3 * S134) * 128.27;
             }
 
 
 
-    si (8.29 <> 9.3 / 886.2)
-        {
-        si (9 > - V * n4)
-            {
-            G130 = (27 / - (- 58)) / (yx76 - 0);
-            F7s30 = o151N;
-            }
-
-        xw8 = + (70375 - LZ5);
-        }
-    otro
-        {
-        mientras (45.97 < (qpDTw / 87.80) * (61990.00 + 09987.5))
-            a = 0 - 70699;
-
-
-
-        o1 = ((o1 + dLq) - 6586.04) + 7;
-        }
 
     }
-
- entero vO ,v ,l3e7F ;
- mientras (eT >= FY)
+otro
     {
-    mientras (07574 > 588)
-        mientras (c < - 41.5)
-            imprime (087.73);
-
-
-     entero AtB1a ,s3V ,vc5o5 ,WkH1 ,SB5Go ,wq0w ;	}
-
- entero A6bPG ,U ,S6h5 ,SDl4 ,g970 ,Pz0j1 ;
- mientras (tQZz > 086.33)
-    {
-    mientras (- (u6D5 / r5) == O)
-        mientras (4.77 <= 0.6)
-            {
-            q = x;
-
-            imprime (948);
-
-            }
-
-    VPn = (27.20 * 1.82 - 6) + + 101;
+    si (2818.7 / 74 - (163 + on2) == 604.66)
+         entero Qu ,yI ,T ;
     }
+
+
+a = s7H;
+mientras (744.2 >= 73175.09)
+    H = V;
+
+
+
+mientras (0227.2 + (29 - 8640.3) > + (041 / R0bs))
+    si (Y0T == + 38294.40)
+        mientras (+ 724.6 < 88.5)
+            v80h = + ((+ 43012 + R3K) - y1);

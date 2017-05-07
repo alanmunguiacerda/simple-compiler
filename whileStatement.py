@@ -6,3 +6,10 @@ class WhileStatement(Node):
 
         self.expr = expr
         self.stm = stm
+
+    def generateXML(self):
+        xml = '<MIENTRAS>'
+        xml += self.expr.generateXML()
+        xml += self.cascadeXML(self.stm)
+        xml += '</MIENTRAS>'
+        return xml

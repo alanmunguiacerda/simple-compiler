@@ -1,3 +1,6 @@
 *.pyc
 tree
 salida.txt
+__pycache__/
+example/
+out.xml

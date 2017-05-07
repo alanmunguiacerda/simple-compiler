@@ -3,8 +3,9 @@ import sys
 from errorManager import LexError, SynError, writeErrorFile
 from lexAnalyzer import Lex, writeSuccessFile
 from synAnalyzer import Syn
+from node import generateXML, writeXML
 
-def debug(tokens, tree):
+def debug(tokens, xml):
     if 'lex' in sys.argv:
         print('--------TOKENS--------')
         for t in tokens:
@@ -12,11 +13,7 @@ def debug(tokens, tree):
 
     if 'syn' in sys.argv:
         print('--------TREE--------')
-        json = tree.toJson()
-        print(json)
-        file = open('tree', 'w')
-        file.write(json)
-        file.close()
+        print(xml)
 
 try:
     lex = Lex(file_path='entrada.txt')
@@ -24,11 +21,13 @@ try:
 
     syn = Syn(tokens)
     tree = syn.analyze()
+    xml = generateXML(tree)
 
     if '-D' in sys.argv:
-        debug(tokens, tree)
+        debug(tokens, xml)
 except (LexError, SynError) as e:
     print(e)
     writeErrorFile()
 else:
     writeSuccessFile()
+    writeXML(xml)

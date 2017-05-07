@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROGRAMA>
+  <SI>
+    <EXPRESION value="&lt;">
+      <ID>Qi</ID>
+      <ID>K</ID>
+    </EXPRESION>
+    <BLOQUE>
+      <ASIGNACION>
+        <ID>J0y3</ID>
+        <ID>GU6H</ID>
+      </ASIGNACION>
+      <MIENTRAS>
+        <EXPRESION value="&lt;=">
+          <SUMA value="+">
+            <ENTERO>252</ENTERO>
+            <REAL>1.1</REAL>
+          </SUMA>
+          <ENTERO>49</ENTERO>
+        </EXPRESION>
+        <BLOQUE>
+          <SI>
+            <EXPRESION value="&lt;&gt;">
+              <MULT value="*">
+                <MULT value="/">
+                  <ID>YA87</ID>
+                  <REAL>52.14</REAL>
+                </MULT>
+                <SUMA value="-">
+                  <REAL>39.87</REAL>
+                  <REAL>728.5</REAL>
+                </SUMA>
+              </MULT>
+              <ENTERO>3612</ENTERO>
+            </EXPRESION>
+            <BLOQUE>
+              <IMPRIME>
+                <EXPRESION>
+                  <ENTERO>164</ENTERO>
+                </EXPRESION>
+              </IMPRIME>
+              <ASIGNACION>
+                <ID>z8Sv4</ID>
+                <MULT value="*">
+                  <MULT value="*">
+                    <REAL>21.3</REAL>
+                    <ID>S134</ID>
+                  </MULT>
+                  <REAL>128.27</REAL>
+                </MULT>
+              </ASIGNACION>
+            </BLOQUE>
+          </SI>
+        </BLOQUE>
+      </MIENTRAS>
+    </BLOQUE>
+    <OTRO>
+      <SI>
+        <EXPRESION value="==">
+          <SUMA value="-">
+            <MULT value="/">
+              <REAL>2818.7</REAL>
+              <ENTERO>74</ENTERO>
+            </MULT>
+            <SUMA value="+">
+              <ENTERO>163</ENTERO>
+              <ID>on2</ID>
+            </SUMA>
+          </SUMA>
+          <REAL>604.66</REAL>
+        </EXPRESION>
+        <BLOQUE>
+          <DEFVAR>
+            <TIPO>entero</TIPO>
+            <ID>Qu</ID>
+            <ID>yI</ID>
+            <ID>T</ID>
+          </DEFVAR>
+        </BLOQUE>
+      </SI>
+    </OTRO>
+  </SI>
+  <ASIGNACION>
+    <ID>a</ID>
+    <ID>s7H</ID>
+  </ASIGNACION>
+  <MIENTRAS>
+    <EXPRESION value="&gt;=">
+      <REAL>744.2</REAL>
+      <REAL>73175.09</REAL>
+    </EXPRESION>
+    <BLOQUE>
+      <ASIGNACION>
+        <ID>H</ID>
+        <ID>V</ID>
+      </ASIGNACION>
+    </BLOQUE>
+  </MIENTRAS>
+  <MIENTRAS>
+    <EXPRESION value="&gt;">
+      <SUMA value="+">
+        <REAL>0227.2</REAL>
+        <SUMA value="-">
+          <ENTERO>29</ENTERO>
+          <REAL>8640.3</REAL>
+        </SUMA>
+      </SUMA>
+      <SIGNO value="+">
+        <MULT value="/">
+          <ENTERO>041</ENTERO>
+          <ID>R0bs</ID>
+        </MULT>
+      </SIGNO>
+    </EXPRESION>
+    <BLOQUE>
+      <SI>
+        <EXPRESION value="==">
+          <ID>Y0T</ID>
+          <SIGNO value="+">
+            <REAL>38294.40</REAL>
+          </SIGNO>
+        </EXPRESION>
+        <BLOQUE>
+          <MIENTRAS>
+            <EXPRESION value="&lt;">
+              <SIGNO value="+">
+                <REAL>724.6</REAL>
+              </SIGNO>
+              <REAL>88.5</REAL>
+            </EXPRESION>
+            <BLOQUE>
+              <ASIGNACION>
+                <ID>v80h</ID>
+                <SIGNO value="+">
+                  <SUMA value="-">
+                    <SUMA value="+">
+                      <SIGNO value="+">
+                        <ENTERO>43012</ENTERO>
+                      </SIGNO>
+                      <ID>R3K</ID>
+                    </SUMA>
+                    <ID>y1</ID>
+                  </SUMA>
+                </SIGNO>
+              </ASIGNACION>
+            </BLOQUE>
+          </MIENTRAS>
+        </BLOQUE>
+      </SI>
+    </BLOQUE>
+  </MIENTRAS>
+</PROGRAMA>

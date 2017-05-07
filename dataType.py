@@ -8,3 +8,6 @@ class DataType(Node):
 
     def get_data_type(self):
         return TYPES_MAP.get(self.symbol, D_TYPES['error'])
+
+    def generateXML(self):
+        return '<TIPO>{0}</TIPO>'.format(self.symbol)
