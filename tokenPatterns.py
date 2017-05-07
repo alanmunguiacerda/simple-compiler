@@ -29,7 +29,7 @@ RE_OP_LOG = '\b(y|o)\b'
 RE_OP_ARI = '(\+|-|\*|/)'
 RE_OP_REL = '(<=|>=|<>|<|>|==)'
 RE_ASSIGN = '(=)'
-RE_DELIMI = '(\(|\)|\|;|,)'
+RE_DELIMI = '(\(|\)|\{|\}|;|,)'
 RE_RESERV = '\b({})\b'.format('|'.join(RES_WORDS))
 RE_IDENTI = '([A-Za-z_])(([A-Za-z0-9_])*)'
 

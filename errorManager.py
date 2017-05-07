@@ -1,14 +1,7 @@
-class ErrorManager:
-    errorCount = 0
+class LexError(Exception):
+    def __init__(self, message):
 
-    def lexicalError(row, col, message):
-        print('[{0}, {1}] [lex] {2}'.format(row, col, message))
-        ErrorManager.errorCount += 1
-
-    def syntacticError(row, col, message):
-        print('[{0}, {1}] [syn] {2}'.format(row, col, message))
-        ErrorManager.errorCount += 1
-
-    def semanticError(row, col, message):
-        print('[{0}, {1}] [sem] {2}'.format(row, col, message))
-        ErrorManager.errorCount += 1
+def writeErrorFile():
+    file = open('salida.txt', 'w')
+    file.write('1')
+    file.close()
