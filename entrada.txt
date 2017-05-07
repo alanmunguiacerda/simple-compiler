@@ -1,23 +1,5 @@
-entero a;
-a = 10;
-entero b;
-b = a + 2;
-entero a, b;
-a = 2 + 3;
-b = 3 * a - 4;
-imprime(a);
-imprime(2 - b * 3);
-entero i;
-i = 0;
-mientras(i<100) {
-    imprime(i);
-    i = i + 10;
-}
-real m, n, z;
-m = 10.5;
-n = 13.5;
-si(m<100 y n>5)
-    z = 1;
-otro
-    z = 0;
-imprime(z);
+===)___4_Yt
+l_
++(=:-+_4
+:)t9
+    *<=
