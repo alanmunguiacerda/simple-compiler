@@ -1,5 +1,5 @@
 from errorManager import LexError
-from tokenPatterns import TOKEN_PATTERN, NEWLN, SPACE
+from tokenPatterns import TOKEN_PATTERN, NEWLN, SPACE, RES_WORDS
 
 IGNORED_TOKENS = frozenset([NEWLN, SPACE])
 
@@ -31,8 +31,11 @@ class Lex:
 
             pos = m.end()
 
+            token_value = m.group(token_name)
+            if token_value in RES_WORDS:
+                token_name = 'RES_WORD'
+
             if token_name not in IGNORED_TOKENS:
-                token_value = m.group(token_name)
                 self.tokens.append((token_name, token_value))
 
     def current(self):

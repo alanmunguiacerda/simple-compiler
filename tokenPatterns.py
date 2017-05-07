@@ -30,7 +30,6 @@ RE_OP_ARI = '(\+|-|\*|/)'
 RE_OP_REL = '(<=|>=|<>|<|>|==)'
 RE_ASSIGN = '(=)'
 RE_DELIMI = '(\(|\)|\{|\}|;|,)'
-RE_RESERV = '\b({})\b'.format('|'.join(RES_WORDS))
 RE_IDENTI = '([A-Za-z_])(([A-Za-z0-9_])*)'
 
 patterns = [
@@ -43,7 +42,6 @@ patterns = [
     '(?P<{0}>{1})'.format(OP_REL, RE_OP_REL),
     '(?P<{0}>{1})'.format(ASSIGN, RE_ASSIGN),
     '(?P<{0}>{1})'.format(DELIMI, RE_DELIMI),
-    '(?P<{0}>{1})'.format(RESERV, RE_RESERV),
     '(?P<{0}>{1})'.format(IDENTI, RE_IDENTI)
 ]
 
