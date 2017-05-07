@@ -2,6 +2,7 @@ D_TYPES = {
     'error': -1,
     'int': 1,
     'float': 2,
+    'void': 3,
 }
 
 TYPES_MAP = {
@@ -17,6 +18,8 @@ REL_OP_MAP = {
     '<=': '&lt;=',
     '==': '==',
     '<>': '&lt;&gt;',
+    'y': 'y',
+    'o': 'o',
 }
 
 OP_MAP = {

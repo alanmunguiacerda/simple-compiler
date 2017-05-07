@@ -12,3 +12,12 @@ class UnaryExpression(Node):
         xml += self.expr.generateXML()
         xml += '</SIGNO>'
         return xml
+
+    def semantic(self):
+        self.expr.semantic()
+
+        if self.expr.type in [D_TYPES['error'], D_TYPES['int']]:
+            self.type = self.expr.type
+            return
+
+        raise SemError('Can\'t apply unary operator to invalid type')

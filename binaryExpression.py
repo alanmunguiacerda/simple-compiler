@@ -1,5 +1,6 @@
 from node import Node
 from dataTypes import REL_OP_MAP, OP_MAP
+from errorManager import SemError
 
 class BinaryExpression(Node):
     def __init__(self, op, left, right):
@@ -23,3 +24,13 @@ class BinaryExpression(Node):
         xml += self.right.generateXML()
         xml += '</{0}>'.format(label)
         return xml
+
+    def semantic(self):
+        self.left.semantic()
+        self.right.semantic()
+
+        if self.left.type == self.right.type:
+            self.type = self.left.type
+            return
+
+        raise SemError('Can\'t operate incompatible types')

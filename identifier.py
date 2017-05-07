@@ -1,4 +1,5 @@
 from node import Node
+from errorManager import SemError
 
 class Identifier(Node):
     def __init__(self, identifier):
@@ -6,3 +7,12 @@ class Identifier(Node):
 
     def generateXML(self):
         return '<ID>{0}</ID>'.format(self.symbol)
+
+    def semantic(self):
+        in_table = self.sym_table.get(self.symbol, False)
+
+        if not in_table:
+            raise SemError('Undeclared variable {0}'.format(self.symbol))
+            return
+
+        self.type = in_table['data_type']

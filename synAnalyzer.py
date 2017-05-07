@@ -198,7 +198,7 @@ class Syn:
 
     def rel_expr(self):
         expr = self.add_expr()
-        while (self.t_is(OP_REL)):
+        if (self.t_is(OP_REL)):
             op = self.lookahead[1]
             self.match_t(OP_REL)
             expr = BinaryExpression(op, expr, self.add_expr())

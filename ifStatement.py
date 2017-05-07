@@ -1,4 +1,6 @@
 from node import Node
+from dataTypes import D_TYPES
+from errorManager import SemError
 
 class IfStatement(Node):
     def __init__(self, expr, stm, elseStm):
@@ -17,3 +19,14 @@ class IfStatement(Node):
             xml += '</OTRO>'
         xml += '</SI>'
         return xml
+
+    def semantic(self):
+        self.expr.semantic()
+        self.cascadeSemantic(self.stm)
+        self.cascadeSemantic(self.elseStm)
+
+        if self.expr.type == D_TYPES['error']:
+            raise SemError('Invalid if expression')
+            return
+
+        self.type = D_TYPES['void']

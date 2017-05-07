@@ -3,6 +3,8 @@ import json
 from dataTypes import D_TYPES
 
 class Node:
+    sym_table = {}
+
     def __init__(self, symbol = ''):
         self.symbol = symbol
         self.next = None
@@ -31,6 +33,18 @@ class Node:
             xml += '</BLOQUE>'
         return xml
 
+    def semantic(self):
+        print('Checking {0}'.format(self.name))
+
+    def cascadeSemantic(self, obj, *args):
+        curr = obj
+        while (curr):
+            curr.semantic(*args)
+            curr = curr.next
+
+    def generateCode(self):
+        return '; Implement this, lol'
+
 def generateXML(tree):
     xml = '<PROGRAMA>'
     xml += tree.cascadeXML(tree, False)
@@ -41,3 +55,6 @@ def writeXML(xml):
     file = open('salida.xml', 'w')
     file.write(xml)
     file.close()
+
+def check_semantic(tree):
+    tree.cascadeSemantic(tree)

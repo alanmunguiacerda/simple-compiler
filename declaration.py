@@ -13,3 +13,7 @@ class Declaration(Node):
         xml += self.cascadeXML(self.declarator, False)
         xml += '</DEFVAR>'
         return xml
+
+    def semantic(self):
+        data_type = self.data_type.type
+        self.cascadeSemantic(self.declarator, data_type)
