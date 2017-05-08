@@ -6,9 +6,9 @@ class Print(Node):
         super(Print, self).__init__()
         self.expr = expr
 
-    def generateXML(self):
+    def generate_xml(self):
         xml = '<IMPRIME><EXPRESION>'
-        xml += self.expr.generateXML()
+        xml += self.expr.generate_xml()
         xml += '</EXPRESION></IMPRIME>'
         return xml
 

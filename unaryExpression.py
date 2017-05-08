@@ -7,9 +7,9 @@ class UnaryExpression(Node):
         self.op = op
         self.expr = expr
 
-    def generateXML(self):
+    def generate_xml(self):
         xml = '<SIGNO value="{0}">'.format(self.op)
-        xml += self.expr.generateXML()
+        xml += self.expr.generate_xml()
         xml += '</SIGNO>'
         return xml
 

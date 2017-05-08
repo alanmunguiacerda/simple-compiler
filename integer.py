@@ -6,7 +6,7 @@ class Integer(Node):
         super(Integer, self).__init__(symbol)
         self.type = D_TYPES['int']
 
-    def generateXML(self):
+    def generate_xml(self):
         return '<ENTERO>{0}</ENTERO>'.format(self.symbol)
 
     def semantic(self):

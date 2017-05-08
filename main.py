@@ -3,7 +3,7 @@ import sys
 from errorManager import LexError, SynError, writeErrorFile
 from lexAnalyzer import Lex, writeSuccessFile
 from synAnalyzer import Syn
-from node import generateXML, check_semantic, writeXML
+from node import generate_xml, check_semantic, write_xml
 
 def debug(tokens, xml, symbols):
     if 'lex' in sys.argv:
@@ -17,7 +17,8 @@ def debug(tokens, xml, symbols):
 
     if 'sem' in sys.argv:
         print('--------SYMBOLS--------')
-        print(symbols)
+        for key, value in symbols.items():
+            print(value)
 
 try:
     lex = Lex(file_path='entrada.txt')
@@ -25,7 +26,7 @@ try:
 
     syn = Syn(tokens)
     tree = syn.analyze()
-    xml = generateXML(tree)
+    xml = generate_xml(tree)
     check_semantic(tree)
 
     if '-D' in sys.argv:
@@ -35,4 +36,4 @@ except (LexError, SynError) as e:
     writeErrorFile()
 else:
     writeSuccessFile()
-    writeXML(xml)
+    write_xml(xml)

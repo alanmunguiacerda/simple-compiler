@@ -7,13 +7,13 @@ class Declaration(Node):
         self.data_type = data_type
         self.declarator = declarator
 
-    def generateXML(self):
+    def generate_xml(self):
         xml = '<DEFVAR>'
-        xml += self.data_type.generateXML()
-        xml += self.cascadeXML(self.declarator, False)
+        xml += self.data_type.generate_xml()
+        xml += self.cascade_xml(self.declarator, False)
         xml += '</DEFVAR>'
         return xml
 
     def semantic(self):
         data_type = self.data_type.type
-        self.cascadeSemantic(self.declarator, data_type)
+        self.cascade_semantic(self.declarator, data_type)

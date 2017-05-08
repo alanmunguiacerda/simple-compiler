@@ -5,7 +5,7 @@ class Identifier(Node):
     def __init__(self, identifier):
         super(Identifier, self).__init__(identifier)
 
-    def generateXML(self):
+    def generate_xml(self):
         return '<ID>{0}</ID>'.format(self.symbol)
 
     def semantic(self):

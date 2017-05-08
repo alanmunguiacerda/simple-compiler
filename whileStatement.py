@@ -9,16 +9,16 @@ class WhileStatement(Node):
         self.expr = expr
         self.stm = stm
 
-    def generateXML(self):
+    def generate_xml(self):
         xml = '<MIENTRAS>'
-        xml += self.expr.generateXML()
-        xml += self.cascadeXML(self.stm)
+        xml += self.expr.generate_xml()
+        xml += self.cascade_xml(self.stm)
         xml += '</MIENTRAS>'
         return xml
 
     def semantic(self):
         self.expr.semantic()
-        self.cascadeSemantic(self.stm)
+        self.cascade_semantic(self.stm)
 
         if self.expr.type not in [D_TYPES['int'], D_TYPES['float']]:
             raise SemError('Invalid while expression')

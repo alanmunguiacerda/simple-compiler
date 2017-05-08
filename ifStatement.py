@@ -9,21 +9,21 @@ class IfStatement(Node):
         self.stm = stm
         self.elseStm = elseStm
 
-    def generateXML(self):
+    def generate_xml(self):
         xml = '<SI>'
-        xml += self.expr.generateXML()
-        xml += self.cascadeXML(self.stm)
+        xml += self.expr.generate_xml()
+        xml += self.cascade_xml(self.stm)
         if self.elseStm:
             xml += '<OTRO>'
-            xml += self.cascadeXML(self.elseStm, False)
+            xml += self.cascade_xml(self.elseStm, False)
             xml += '</OTRO>'
         xml += '</SI>'
         return xml
 
     def semantic(self):
         self.expr.semantic()
-        self.cascadeSemantic(self.stm)
-        self.cascadeSemantic(self.elseStm)
+        self.cascade_semantic(self.stm)
+        self.cascade_semantic(self.elseStm)
 
         if self.expr.type == D_TYPES['error']:
             raise SemError('Invalid if expression')

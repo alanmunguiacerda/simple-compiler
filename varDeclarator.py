@@ -7,8 +7,8 @@ class VarDeclarator(Node):
         super(VarDeclarator, self).__init__()
         self.id = id
 
-    def generateXML(self):
-        return self.id.generateXML()
+    def generate_xml(self):
+        return self.id.generate_xml()
 
     def semantic(self, var_type):
         if self.sym_table.get(self.id.symbol, False):

@@ -9,7 +9,7 @@ class BinaryExpression(Node):
         self.left = left
         self.right = right
 
-    def generateXML(self):
+    def generate_xml(self):
         if self.op == '=':
             label = 'ASIGNACION'
             val = ''
@@ -20,8 +20,8 @@ class BinaryExpression(Node):
             label = OP_MAP[self.op]
             val = ' value="{0}"'.format(self.op)
         xml = '<{0}{1}>'.format(label, val)
-        xml += self.left.generateXML()
-        xml += self.right.generateXML()
+        xml += self.left.generate_xml()
+        xml += self.right.generate_xml()
         xml += '</{0}>'.format(label)
         return xml
 
@@ -34,3 +34,14 @@ class BinaryExpression(Node):
             return
 
         raise SemError('Can\'t operate incompatible types')
+
+    def generate_code(self):
+        if self.op == '=':
+            code = self.right.generate_code()
+            in_table = self.sym_table[self.left.symbol]
+            assignment = 'mov _{0}, eax'.format(in_table['id']);
+            code.append(assignment)
+            return code
+
+        code = self.left.generate_code()
+        code.append('mov eax, ebx')
