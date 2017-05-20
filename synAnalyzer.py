@@ -12,6 +12,7 @@ from print import Print
 from whileStatement import WhileStatement
 from ifStatement import IfStatement
 
+
 class Syn:
     def __init__(self, tokens):
         self.tokens = tokens

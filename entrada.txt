@@ -1,31 +1,19 @@
-entero uno, dos, tres;
-real cuatro;
-uno = 10;
-dos = 20;
-tres = 30;
-cuatro = 5.5;
+entero a, b, c;
+a = 0;
+b = 0;
+c = 0;
 
-si (uno < dos y dos < 4 o 10 + 4) {
-    tres = 10;
-} otro si (uno < dos) {
-    imprime(2);
-} otro {
-    imprime(cuatro);
-}
-
-imprime(tres);
-
-mientras (cuatro < 10.0) {
-    imprime(cuatro);
-    cuatro = cuatro + 1.0;
-    entero nuevo;
-    nuevo = 2;
-
-    mientras (cuatro < 6.0) {
-        imprime(cuatro + 99.9);
-        si (nuevo == 2) {
-            imprime(nuevo);
-            nuevo = nuevo + 1;
-        }
-    }
+mientras (a < 2) {
+	b = 0;
+	mientras (b < 3) {
+		c = 0;
+		mientras (c < 4) {
+			imprime(a);
+			imprime(b);
+			imprime(c);
+			c = c+1;
+		}
+		b = b+1;
+	}
+	a = a + 1;
 }

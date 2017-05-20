@@ -1,6 +1,7 @@
 from node import Node
 from errorManager import SemError
 
+
 class Identifier(Node):
     def __init__(self, identifier):
         super(Identifier, self).__init__(identifier)
@@ -16,3 +17,9 @@ class Identifier(Node):
             return
 
         self.type = in_table['data_type']
+
+    def generate_code(self):
+        return [
+            'mov rax, [_{0}]'.format(self.symbol),
+            'push rax',
+        ]

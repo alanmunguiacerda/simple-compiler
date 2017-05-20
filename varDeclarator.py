@@ -2,6 +2,7 @@ from node import Node
 from errorManager import SemError
 from dataTypes import D_TYPES
 
+
 class VarDeclarator(Node):
     def __init__(self, id):
         super(VarDeclarator, self).__init__()
@@ -24,3 +25,6 @@ class VarDeclarator(Node):
             'id': self.id.symbol,
         }
         self.type = D_TYPES['void']
+
+    def generate_code(self):
+        return []

@@ -2,10 +2,19 @@ import json
 
 from dataTypes import D_TYPES
 
+
 class Node:
     sym_table = {}
+    counters = {
+        'true': 0,
+        'false': 0,
+        'while': 0,
+        'if': 0,
+        'end': 0,
+        'else': 0,
+    }
 
-    def __init__(self, symbol = ''):
+    def __init__(self, symbol=''):
         self.symbol = symbol
         self.next = None
         self.type = D_TYPES['error']
@@ -21,7 +30,7 @@ class Node:
         xml += '</{0}>'.format(str(type(self).__name__))
         return xml
 
-    def cascade_xml(self, obj, block_tag = True):
+    def cascade_xml(self, obj, block_tag=True):
         curr = obj
         xml = ''
         if block_tag:
@@ -56,9 +65,14 @@ class Node:
     def generate_var_dclr(self, tree):
         code = []
         for k, v in self.sym_table.items():
-            new = '_{0} dd 0'.format(v['id'])
+            new = '_{0}: resq 1'.format(v['id'])
             code.append(new)
         return code
+
+    def get_unique_label(self, label_type):
+        counter = self.counters[label_type]
+        self.counters[label_type] += 1
+        return '{0}_{1}'.format(label_type, counter)
 
 
 def generate_xml(tree):
@@ -67,18 +81,43 @@ def generate_xml(tree):
     xml += '</PROGRAMA>'
     return xml
 
+
 def write_xml(xml):
     file = open('salida.xml', 'w')
     file.write(xml)
     file.close()
 
+
 def check_semantic(tree):
     tree.cascade_semantic(tree)
 
+
 def generate_code(tree):
-    code = ['.386', '.model flat, stdcall', 'include', 'include lib', '.data']
+    code = [
+        'extern printf',
+        'SECTION .data',
+        'fmt: db "%d", 10, 0',
+        'SECTION .bss'
+    ]
     code += tree.generate_var_dclr(tree)
-    code += ['.code', 'inicio:']
+    code += [
+        'SECTION .text',
+        'global main',
+        'main:',
+        'push rbp',
+        '; PROGRAM START',
+    ]
     code += tree.cascade_code(tree)
-    code += ['exit', 'end inicio']
+    code += [
+        '; PROGRAM END',
+        'pop rbp',
+        'mov rax, 0',
+        'ret',
+    ]
     return '\n'.join(code)
+
+
+def write_code(code):
+    file = open('nasm/salida.asm', 'w')
+    file.write(code)
+    file.close()

@@ -46,6 +46,6 @@ patterns = [
     '(?P<{0}>{1})'.format(IDENTI, RE_IDENTI),
 ]
 
-token_pattern = r'|'.join(patterns);
+token_pattern = r'|'.join(patterns)
 
 TOKEN_PATTERN = re.compile(token_pattern, re.VERBOSE)

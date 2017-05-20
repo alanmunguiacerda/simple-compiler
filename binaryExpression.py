@@ -2,6 +2,27 @@ from node import Node
 from dataTypes import REL_OP_MAP, OP_MAP
 from errorManager import SemError
 
+CODE_OP = {
+    '+': 'add',
+    '-': 'sub',
+    '*': 'imul',
+    '/': 'idiv',
+}
+
+CODE_COMP = {
+    '==': 'je',
+    '<>': 'jne',
+    '>': 'jg',
+    '<': 'jl',
+    '>=': 'jge',
+    '<=': 'jle',
+}
+
+ADDITIVE = frozenset(['+', '-'])
+MULTIPLICATIVE = frozenset(['*', '/'])
+COMPARISION = frozenset(['==', '<>', '>', '<', '>=', '<='])
+
+
 class BinaryExpression(Node):
     def __init__(self, op, left, right):
         super(BinaryExpression, self).__init__()
@@ -39,9 +60,44 @@ class BinaryExpression(Node):
         if self.op == '=':
             code = self.right.generate_code()
             in_table = self.sym_table[self.left.symbol]
-            assignment = 'mov _{0}, eax'.format(in_table['id']);
-            code.append(assignment)
+            code += [
+                'pop rax',
+                'mov [_{0}], rax'.format(in_table['id']),
+            ]
             return code
 
         code = self.left.generate_code()
-        code.append('mov eax, ebx')
+        code += self.right.generate_code()
+        code.append('pop rbx')
+        code.append('pop rax')
+
+        if self.op in ADDITIVE:
+            code += [
+                '{0} rax, rbx'.format(CODE_OP[self.op]),
+                'push rax',
+            ]
+            return code
+
+        if self.op in MULTIPLICATIVE:
+            if self.op == '/':
+                code.append('mov rdx, 0')
+            code += [
+                '{0} rbx'.format(CODE_OP[self.op]),
+                'push rax',
+            ]
+            return code
+
+        if self.op in COMPARISION:
+            true_label = self.get_unique_label('true')
+            end_label = self.get_unique_label('end')
+
+            code += [
+                'cmp rax, rbx',
+                '{0} {1}'.format(CODE_COMP[self.op], true_label),
+                'push 0',
+                'jmp {0}'.format(end_label),
+                '{0}:'.format(true_label),
+                'push 1',
+                '{0}:'.format(end_label),
+            ]
+            return code

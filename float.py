@@ -1,6 +1,7 @@
 from node import Node
 from dataTypes import D_TYPES
 
+
 class Float(Node):
     def __init__(self, symbol):
         super(Float, self).__init__(symbol)
@@ -11,3 +12,6 @@ class Float(Node):
 
     def semantic(self):
         pass
+
+    def generate_code(self):
+        return ['push {0}'.format(self.symbol)]

@@ -1,6 +1,7 @@
 from dataTypes import D_TYPES, TYPES_MAP
 from node import Node
 
+
 class DataType(Node):
     def __init__(self, symbol):
         super(DataType, self).__init__(symbol)

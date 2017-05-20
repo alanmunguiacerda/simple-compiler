@@ -1,5 +1,7 @@
 from node import Node
 from dataTypes import D_TYPES
+from errorManager import SemError
+
 
 class Print(Node):
     def __init__(self, expr):
@@ -20,3 +22,15 @@ class Print(Node):
             return
 
         self.type = D_TYPES['void']
+
+    def generate_code(self):
+        expr = self.expr.generate_code()
+
+        print_code = [
+            'pop rax',
+            'mov rdi, fmt',
+            'mov rsi, rax',
+            'call printf',
+        ]
+
+        return expr + print_code
